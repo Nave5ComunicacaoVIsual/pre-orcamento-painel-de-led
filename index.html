@@ -2,6 +2,14 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NL1M9V537W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NL1M9V537W');
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Orçamento Painel de LED — Nave 5</title>
 <style>
@@ -644,6 +652,11 @@ function sendWhatsApp() {
     `_(Instalação e deslocamento a consultar)_\n\n` +
     `Gostaria de confirmar os detalhes e agendar uma visita técnica!`
   );
+  gtag('event', 'clique_whatsapp', {
+    event_category: 'contato',
+    event_label: 'botao_whatsapp_orcamento',
+    value: window._quoteData ? window._quoteData.total : 0
+  });
   window.open(`https://wa.me/${NAVE5_WHATSAPP}?text=${msg}`, '_blank');
 }
 
